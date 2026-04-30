@@ -27,7 +27,6 @@ public class Main extends JFrame {
         JButton limpar = new JButton("Limpar");
         JButton percursos = new JButton("Percursos");
         JButton info = new JButton("Info Nó");
-        // Novo botão
         JButton inverter = new JButton("Inverter");
 
         topo.add(new JLabel("Número:"));
@@ -36,14 +35,13 @@ public class Main extends JFrame {
         topo.add(buscar);
         topo.add(salvar);
         topo.add(carregar);
-        topo.add(inverter); // Botão inverter adicionado
+        topo.add(inverter);
         topo.add(limpar);
         topo.add(percursos);
         topo.add(info);
 
         add(topo, BorderLayout.NORTH);
 
-        // AÇÕES
         adicionar.addActionListener(e -> {
             try {
                 int valor = Integer.parseInt(campo.getText());
@@ -66,12 +64,10 @@ public class Main extends JFrame {
             }
         });
 
-        // Ação para inverter e "imprimir" a árvore
         inverter.addActionListener(e -> {
             arvore.inverter();
             painel.repaint(); // Imprime graficamente a árvore invertida
 
-            // Imprime textualmente a árvore após inversão
             String msg = "Árvore invertida com sucesso!\n\n" +
                     "Nova Estrutura (Pré-ordem): \n" + arvore.preOrder();
             JOptionPane.showMessageDialog(this, msg);
